@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <link rel="preload" href="/images/bg1.jpg" as="image">
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-main">
+        <h1>
+          <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        </h1>
+        <h2 class="site-subtitle">{{ .Site.Params.subtitle }}</h2>
+      </div>
+      <nav role="navigation" aria-label="主导航">
+        <ul>
+          {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL }}" aria-label="{{ .Name }} 页面">{{ .Name }}</a></li>
+          {{ end }}
+          <li>
+            <button id="search-button" class="search-button" aria-label="打开搜索框" title="搜索本站">
+              <img src="/images/search_cr23.svg" alt="搜索图标" class="search-icon" />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="search-overlay" class="search-overlay">
+      <div id="search-popup" class="search-popup">
+        <div class="search-header">
+          <h3 class="search-title">站内搜索</h3>
+          <p class="search-subtitle">选择搜索引擎，输入关键词开始搜索</p>
+        </div>
+        <div class="search-input-container">
+          <input type="text" id="search-input" placeholder="输入关键词..." autocomplete="off" />
+        </div>
+        <div class="search-engines">
+          <div class="search-engine active" data-engine="google">Google</div>
+          <div class="search-engine" data-engine="bing">Bing</div>
+          <div class="search-engine" data-engine="yahoo">Yahoo</div>
+          <div class="search-engine" data-engine="baidu">百度</div>
+        </div>
+        <div class="search-actions">
+          <button class="search-btn search-btn-secondary" onclick="closeSearch()">取消</button>
+          <button class="search-btn search-btn-primary" onclick="performSearch()">搜索</button>
+        </div>
+        <div class="search-tips">
+          💡 小贴士：选择不同的搜索引擎可能会得到不同的搜索结果
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    <p>© 2024-{{ now.Year }}
+      <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      Powered by
+      <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
+      <span id="running-days">已累计运行 0 天</span>
+    </p>
+    <script>
+      (function() {
+        const sinceDate = new Date("{{ .Site.Params.since }}T00:00:00");
+        const now = new Date();
+        const diffTime = now - sinceDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        document.getElementById("running-days").textContent = `已累计运行 ${diffDays} 天`;
+      })();
+    </script>
+    <script src="/js/search.js"></script>
+  </footer>
+</body>
+</html>

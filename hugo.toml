@@ -1,0 +1,36 @@
+baseURL = "http://example.com/"
+languageCode = "zh-cn"
+title = "七哥向前冲"
+defaultContentLanguage = "zh"
+
+[params]
+  author = "七哥"
+  description = "七哥的技术博客"
+  since = "2024-11-15"
+  subtitle = "You got a dream, you gotta to protect it!"
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "文档"
+    url = "/docs/"
+    weight = 2
+  [[menu.main]]
+    name = "归档"
+    url = "/archives/"
+    weight = 3
+  [[menu.main]]
+    name = "分类"
+    url = "/categories/"
+    weight = 4
+  [[menu.main]]
+    name = "标签"
+    url = "/tags/"
+    weight = 5
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 6

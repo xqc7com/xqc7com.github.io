@@ -1,0 +1,27 @@
+{{ define "main" }}
+<h2>{{ .Title }}</h2>
+<ul class="post-list">
+  {{ range .Pages }}
+    <li class="post-item">
+      <div class="item-row">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+      </div>
+    </li>
+  {{ end }}
+</ul>
+<audio id="hover-sound" src="/music/hover.wav" preload="auto"></audio>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const items = document.querySelectorAll('.post-item');
+      const hoverSound = document.getElementById('hover-sound');
+      items.forEach(item => {
+          item.addEventListener('mouseenter', () => {
+              hoverSound.currentTime = 0;
+              hoverSound.play().catch(e => {
+              });
+          });
+      });
+  });
+</script>
+{{ end }}

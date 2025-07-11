@@ -1,0 +1,71 @@
+{{ define "main" }}
+<div class="index-list">
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "archives") 10 }}
+  {{ range $paginator.Pages }}
+    <a href="{{ .RelPermalink }}" class="index-card">
+      <div class="index-content">
+        <div class="index-title">{{ .Title }}</div>
+        <div class="index-meta">
+          <span class="index-date">发布日期：{{ .Date.Format "2006-01-02" }}</span>
+          {{ with .Params.categories }}
+            <span class="index-category">{{ index . 0 }}</span>
+          {{ end }}
+        </div>
+        <div class="index-summary">{{ .Summary | plainify | truncate 360 }}</div>
+      </div>
+      {{ $cover := .Params.cover }}
+      {{ if not $cover }}
+        {{ $imageCount := 20 }}
+        {{ $defaultImages := slice }}
+        {{ range $i := seq 1 $imageCount }}
+          {{ $imgPath := printf "/images/thumbnail/thumbnail%d.jpg" $i }}
+          {{ if fileExists (printf "static%s" $imgPath) }}
+            {{ $defaultImages = $defaultImages | append $imgPath }}
+          {{ end }}
+        {{ end }}
+        {{ if $defaultImages }}
+          {{ $rand := mod (add (now.UnixNano) (len .Title)) (len $defaultImages) }}
+          {{ $cover = index $defaultImages $rand }}
+        {{ else }}
+          {{ $cover = "/images/thumbnail/default.jpg" }}
+        {{ end }}
+      {{ end }}
+      <img src="{{ $cover | relURL }}" alt="缩略图" class="index-thumbnail object-cover aspect-[16/9] w-full h-auto rounded" loading="lazy">
+    </a>
+  {{ end }}
+</div>
+
+<div class="pagination">
+  {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">上一页</a>
+  {{ else }}
+    <span class="disabled">上一页</span>
+  {{ end }}
+
+  {{ $total := $paginator.TotalPages }}
+  {{ $current := $paginator.PageNumber }}
+  {{ $dot := false }}
+  {{ range $i, $p := $paginator.Pagers }}
+    {{ $page := $p.PageNumber }}
+    {{ if or (eq $page 1) (eq $page $total) (and (ge $page (sub $current 2)) (le $page (add $current 2))) }}
+      {{ if $dot }}
+        <span class="dots">...</span>
+        {{ $dot = false }}
+      {{ end }}
+      {{ if eq $page $current }}
+        <span class="current">{{ $page }}</span>
+      {{ else }}
+        <a href="{{ $p.URL }}">{{ $page }}</a>
+      {{ end }}
+    {{ else }}
+      {{ $dot = true }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">下一页</a>
+  {{ else }}
+    <span class="disabled">下一页</span>
+  {{ end }}
+</div>
+{{ end }}

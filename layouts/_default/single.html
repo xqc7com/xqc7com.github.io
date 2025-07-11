@@ -1,0 +1,79 @@
+{{ define "main" }}
+<div class="container">
+  <h2 class="single-title">{{ .Title }}</h2>
+  <p class="single-date">
+    发布日期：{{ .Date.Format "2006-01-02" }}
+    {{ with .Params.categories }}
+      ｜文章分类：
+      {{ range $index, $cat := . }}
+        {{ if $index }}, {{ end }}
+        <a href="{{ "/categories/" | relLangURL }}{{ $cat | urlize }}" style="color: var(--primary-color); text-decoration: none;">{{ $cat }}</a>
+      {{ end }}
+    {{ end }}
+  </p>
+  <div class="content">
+    {{ .Content }}
+  </div>
+  {{ with .Params.tags }}
+    <div class="post-tags">
+      <strong>文章标签：</strong>
+      {{ range $index, $tag := . }}
+        <a class="tag" href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}">{{ $tag }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+  {{ if gt (len .TableOfContents) 32 }}
+    <div id="toc">
+      <h3>目录</h3>
+      {{ .TableOfContents }}
+    </div>
+  {{ end }}
+  <div id="imageModal" class="hidden">
+    <img src="" alt="zoomed image">
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.content img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = modal.querySelector('img');
+
+    images.forEach(img => {
+      img.classList.add('zoomable');
+      img.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modalImg.src = img.src;
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modalImg.src = "";
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        modal.classList.add('hidden');
+        modalImg.src = "";
+      }
+    });
+
+    const tocLinks = document.querySelectorAll('#toc a');
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 60;
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight - 10,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+{{ end }}
