@@ -31,6 +31,10 @@ defaultContentLanguage = "zh"
     url = "/tags/"
     weight = 5
   [[menu.main]]
+    name = "工具"
+    url = "https://tools.xqc7.com/"
+    weight = 6
+  [[menu.main]]
     name = "关于"
     url = "/about/"
-    weight = 6
+    weight = 7
