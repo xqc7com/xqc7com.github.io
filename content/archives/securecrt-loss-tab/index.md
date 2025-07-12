@@ -20,9 +20,9 @@ cover: /archives/securecrt-loss-tab/uqevlv.png
 
 问了 gpt 以及网上搜了一遍，Securecrt 的配置也仔细看了一遍，没有找到有效的解决方案
 
-只好尝试将该配置文件重命名 backup 起来，然后重启 Securecrt 进行初始化配置，这时候 tab 就可以恢复显示了
+只好尝试将配置文件 `C:\Users\Administrator\AppData\Roaming\VanDyke\Config\Global.ini` 重命名 backup 起来，然后重启 Securecrt 进行配置初始化
 
-但是这时候 Session 的配色全部丢失了，对比了下新生成的 Global.ini 和备份的 Global.ini，差别太大了，只能重新进行配色
+这时候 tab 显示恢复正常了，但是所有 Session 的配色全部丢失了，对比了下新生成的 Global.ini 和备份的 Global.ini，差别太大了没法同步，只能重新进行配色
 
 有个博主对配色研究比较深，我参考了他的配色，直接将他的 200 种配色导入然后选择了其中一种生效即可 https://www.cnblogs.com/yizhangheka/p/18147608 
 
