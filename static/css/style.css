@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* 全局样式 - 亮色模式变量 */
 :root {
   --primary-color: #3498db;
   --secondary-color: #2980b9;
@@ -8,6 +8,26 @@
   --background-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --border-color: #e1e8ed;
+  --header-bg-image: url('/images/header-bg.jpg');
+  --code-bg: #f0f4ff;
+  --pre-bg: #2e3440;
+  --pre-text: #d8dee9;
+}
+
+/* 暗色模式变量 */
+[data-theme="dark"] {
+  --primary-color: #66b3ff;
+  --secondary-color: #4a9eff;
+  --text-color: #e4e4e4;
+  --text-muted: #a0a0a0;
+  --background-light: #2d2d2d;
+  --background-gradient: linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --border-color: #404040;
+  --header-bg-image: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
+  --code-bg: #404040;
+  --pre-bg: #1e1e1e;
+  --pre-text: #e4e4e4;
 }
 
 html {
@@ -22,8 +42,10 @@ body {
   color: var(--text-color);
   display: flex;
   flex-direction: column;
-  background: url('/images/bg1.jpg') no-repeat center center fixed;
+  /* background: url('/images/bg1.jpg') no-repeat center center fixed; */
   background-size: cover;
+  background-color: var(--background-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -31,12 +53,13 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-image: url('/images/header-bg.jpg');
+  background-image: var(--header-bg-image);
   color: var(--text-color);
   padding: 0.5em 0;
   z-index: 999;
   box-shadow: var(--shadow);
   height: 60px;
+  transition: all 0.3s ease;
 }
 
 .header-container {
@@ -56,12 +79,14 @@ header h1 a {
   color: var(--text-color);
   text-decoration: none;
   font-size: 1em;
+  transition: color 0.3s ease;
 }
 
 .site-subtitle {
   font-size: 0.8em;
   color: var(--text-muted);
   margin: 0.2em 0 0 0;
+  transition: color 0.3s ease;
 }
 
 nav ul {
@@ -77,10 +102,84 @@ nav ul li a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
   color: var(--primary-color);
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+  background: var(--primary-color);
+  color: var(--background-light);
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: var(--secondary-color);
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.theme-toggle:hover::before {
+  left: 100%;
+}
+
+/* 图标样式 */
+.icon {
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+}
+
+.sun-icon, .moon-icon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+[data-theme="light"] .moon-icon,
+:root:not([data-theme]) .moon-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+[data-theme="dark"] .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+[data-theme="light"] .sun-icon,
+:root:not([data-theme]) .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 main {
@@ -99,11 +198,13 @@ footer {
   width: 100%;
   padding: 0.2em 0;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
 footer a {
   color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 footer a:hover {
@@ -118,8 +219,8 @@ footer a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* 增加背景对比度，便于调试 */
-  z-index: 10000; /* 提高 z-index 确保不被覆盖 */
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
   display: none;
   justify-content: center;
   align-items: flex-start;
@@ -138,6 +239,7 @@ footer a:hover {
   max-width: 90vw;
   margin-top: 15vh;
   border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .search-header {
@@ -150,12 +252,14 @@ footer a:hover {
   font-weight: 600;
   color: var(--text-color);
   margin: 0 0 8px 0;
+  transition: color 0.3s ease;
 }
 
 .search-subtitle {
   font-size: 14px;
   color: var(--text-muted);
   margin: 0;
+  transition: color 0.3s ease;
 }
 
 .search-input-container {
@@ -170,18 +274,20 @@ footer a:hover {
   border: 2px solid var(--border-color);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   background: var(--background-light);
+  color: var(--text-color);
   box-sizing: border-box;
 }
 
 #search-input::placeholder {
   color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
 #search-input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  box-shadow: 0 0 0 3px rgba(102, 179, 255, 0.1);
 }
 
 .search-icon {
@@ -193,6 +299,7 @@ footer a:hover {
   opacity: 0.5;
   margin-top: 30px;
   pointer-events: none;
+  filter: var(--text-color);
 }
 
 .search-engines {
@@ -225,7 +332,7 @@ footer a:hover {
 .search-engine.active {
   border-color: var(--primary-color);
   background: var(--primary-color);
-  color: white;
+  color: var(--background-light);
 }
 
 .search-actions {
@@ -246,7 +353,7 @@ footer a:hover {
 
 .search-btn-primary {
   background: var(--primary-color);
-  color: white;
+  color: var(--background-light);
 }
 
 .search-btn-primary:hover {
@@ -259,8 +366,8 @@ footer a:hover {
 }
 
 .search-btn-secondary:hover {
-  background: #d5dbdb;
-  color: var(--text-color);
+  background: var(--text-muted);
+  color: var(--background-light);
 }
 
 .search-tips {
@@ -271,6 +378,7 @@ footer a:hover {
   font-size: 12px;
   color: var(--text-muted);
   border-left: 3px solid var(--primary-color);
+  transition: all 0.3s ease;
 }
 
 .search-button {
@@ -312,6 +420,7 @@ footer a:hover {
   cursor: pointer;
   text-decoration: none;
   box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
 }
 
 .index-card:hover {
@@ -349,6 +458,7 @@ footer a:hover {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  transition: color 0.3s ease;
 }
 
 .index-meta {
@@ -358,16 +468,19 @@ footer a:hover {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-top: 4px;
+  transition: color 0.3s ease;
 }
 
 .index-category {
   color: var(--primary-color);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .index-date {
   font-size: 0.85rem;
   color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
 .index-summary {
@@ -379,6 +492,7 @@ footer a:hover {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  transition: color 0.3s ease;
 }
 
 .pagination {
@@ -396,6 +510,7 @@ footer a:hover {
   background: var(--background-gradient);
   color: var(--text-color);
   border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .pagination a:hover {
@@ -405,7 +520,7 @@ footer a:hover {
 
 .pagination .current {
   background: var(--primary-color);
-  color: white;
+  color: var(--background-light);
   border-color: var(--primary-color);
 }
 
@@ -430,6 +545,7 @@ footer a:hover {
   border-radius: 0.75rem;
   transition: background 0.2s ease, transform 0.2s ease;
   box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
 }
 
 .post-list li:hover {
@@ -450,6 +566,7 @@ footer a:hover {
   font-weight: bold;
   flex: 1;
   padding-left: 1em;
+  transition: color 0.3s ease;
 }
 
 .item-row a:hover {
@@ -461,6 +578,7 @@ footer a:hover {
   font-size: 0.9em;
   white-space: nowrap;
   padding-right: 1em;
+  transition: color 0.3s ease;
 }
 
 /* single.html 样式 */
@@ -472,22 +590,26 @@ footer a:hover {
   text-align: center;
   font-size: 2rem;
   color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .single-date {
   font-size: 0.9em;
   color: var(--text-muted);
   text-align: center;
+  transition: color 0.3s ease;
 }
 
 pre {
-  background: #2e3440;
-  color: #d8dee9;
+  background: var(--pre-bg);
+  color: var(--pre-text);
   padding: 1em;
   border-radius: 8px;
   overflow-x: auto;
   font-size: 0.9em;
   line-height: 1.5;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 code {
@@ -495,17 +617,20 @@ code {
 }
 
 .content p code {
-  background: #f0f4ff;
+  background: var(--code-bg);
   color: var(--primary-color);
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-size: 0.95em;
+  transition: all 0.3s ease;
 }
 
 .content {
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .content img {
@@ -513,6 +638,10 @@ code {
   height: auto;
   display: block;
   border-radius: 8px;
+}
+
+.content a {
+
 }
 
 img.zoomable {
@@ -556,6 +685,7 @@ img.zoomable:active {
 
 .post-tags strong {
   color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .post-tags .tag {
@@ -568,6 +698,7 @@ img.zoomable:active {
   text-decoration: none;
   font-size: 1em;
   border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .post-tags .tag:hover {
