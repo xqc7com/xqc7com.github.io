@@ -168,7 +168,7 @@ if __name__ == "__main__":
 
 为了将 python 代码打包为 exe 执行文件，需要安装 `pip install pyinstaller` 组件
 
-然后运行以下命令，将悬浮球小工具打包为 fallball.exe 可执行文件
+然后运行以下命令，将悬浮球小工具打包为 floatball.exe 可执行文件
 
 ```shell
 pyinstaller --clean --noconfirm --onefile --windowed --name floatball main.py
