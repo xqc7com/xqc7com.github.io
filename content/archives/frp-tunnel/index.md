@@ -20,7 +20,7 @@ title: frp内网穿透到本地
 
 默认只需要 bind_port 就可以了，下面开启了 dashboard 的配置，可以以 web 方式查看 frp 的穿透状态
 
-使用 tls 进行访问，生成证书和私钥可以查看 [这里](https://blog.qc7.org/archives/ubuntu-deploy) 的 “配置ssl” 
+使用 tls 进行访问，生成证书和私钥可以查看 [这里](https://www.xqc7.com/archives/ubuntu-deploy) 的 “配置ssl” 
 
 ```conf
 [common]

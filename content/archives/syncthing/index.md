@@ -140,7 +140,7 @@ Syncthing 的官方这里有完整的 relay 列表，https://relays.syncthing.ne
 
 ## 组网文件同步
 
-这里记录了怎么基于 ubuntu 服务器节点和本地的 win10 节点组成局域网 https://blog.qc7.org/archives/wireguard
+这里记录了怎么基于 ubuntu 服务器节点和本地的 win10 节点组成局域网 https://www.xqc7.com/archives/wireguard
 
 组网后，两个节点的文件同步就像是局域网中的机器一样，这里需要 ufw 开启 22000 端口，这是 syncthing 同步文件需要的端口
 

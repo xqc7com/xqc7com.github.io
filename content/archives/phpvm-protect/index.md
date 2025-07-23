@@ -22,7 +22,7 @@ cover: /archives/phpvm-protect/fogr32.png
 
 一些在 php 端通过 zend_compile_file 等函数就可以直接 dump 出原代码的，称之为加密实在是抬举了
 
-之前有写过一篇直接 dump 出源码的分析 https://blog.qc7.org/archives/php-decode 
+之前有写过一篇直接 dump 出源码的分析 https://www.xqc7.com/archives/php-decode 
 
 基于本人有限的了解，私以为 z5 和 swoole 等类似的才能称得上加密，这里的分析仅限于技术交流
 
@@ -229,7 +229,7 @@ $var__7 中有一个 openssl_decrypt 的代码段，使用时提取到 $var__25 
 
 该代码段有几个临时变量名为乱码，手工修改可读显示如下
 
-![20250508114844](https://imgs.qc7.org/i/2025/05/08/izs3m4.png)
+![20250508114844](/archives/phpvm-protect/izs3m4.png)
 
 至此 vm 代码已经全部可读，代码展开后的完整显示如下，其中 get_value 就是前面的定义，$var__3 为密文由于太长这里删掉了
 

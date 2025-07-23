@@ -110,7 +110,7 @@ b、文章内容中图片链接前缀被替换为 /wp-content/uploads/2025/01
 
 这些路径是由几部分配置拼接起来的，这里的 yyyy/MM 对应当前操作时刻的年月为 2025/01
 
-![](https://imgs.qc7.org/i/2025/01/20/image-xuwc.png)
+![](/archives/highferrum-use-1/image-xuwc.png)
 
 ![](/archives/highferrum-use-1/image-wtyv.png)
 

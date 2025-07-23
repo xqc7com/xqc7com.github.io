@@ -24,7 +24,7 @@ cover: /archives/ssh-mysql/u1hmro.png
 
 ## 设置本地免密登录
 
-这个之前写过，有不清楚的可以看 [这里](https://blog.qc7.org/archives/login-ssh-without-password)
+这个之前写过，有不清楚的可以看 [这里](https://www.xqc7.com/archives/login-ssh-without-password)
 
 设置好之后，本地就不需要密码，直接 `ssh root@xx.xx.xx.xx` 登录到服务器了
 

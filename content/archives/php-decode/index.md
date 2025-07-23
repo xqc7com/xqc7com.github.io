@@ -20,7 +20,7 @@ cover: /archives/php-decode/f2e4lf.png
 
 ## 组件构建
 
-本地的 php 环境是 7.4， 本地调试环境构建可以参考 [这里](https://blog.qc7.org/archives/windows-build-php)，拉取 tonyenc 项目到本地进行编译的时候提示错误
+本地的 php 环境是 7.4， 本地调试环境构建可以参考 [这里](https://www.xqc7.com/archives/windows-build-php)，拉取 tonyenc 项目到本地进行编译的时候提示错误
 
 ```shell
 In file included from /root/develop/tonyenc/tonyenc.c:30:

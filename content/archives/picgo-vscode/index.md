@@ -69,7 +69,7 @@ PS D:\develop\vs-picgo>
 
 ## 代码逻辑
 
-代码逻辑和之前的基本一致，也是注册一个 uploader 实现，可以参考这里 [PicGo 配置](https://blog.qc7.org/archives/easyimage-deploy) 
+代码逻辑和之前的基本一致，也是注册一个 uploader 实现，可以参考这里 [PicGo 配置](https://www.xqc7.com/archives/easyimage-deploy) 
 
 项目的代码已经实现了 `registerRenamePlugin` 的功能，参照该函数逻辑复制然后改一下
 
@@ -92,7 +92,7 @@ PS D:\develop\vs-picgo>
 
 通过 `VSPicgo.picgo.helper.uploader.register` 注册 easyimage 的 uloader，函数 registerUploader 的完整实现如下
 
-这个逻辑和之前写的 [PicGo 配置](https://blog.qc7.org/archives/easyimage-deploy) 基本是一致的
+这个逻辑和之前写的 [PicGo 配置](https://www.xqc7.com/archives/easyimage-deploy) 基本是一致的
 
 ```ts
 

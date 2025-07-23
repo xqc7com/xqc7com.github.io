@@ -36,7 +36,7 @@ cover: /archives/build-grpc/image-opkx.png
 
 清理完毕后，再重新执行 `git submodule update --init`
 
-![](https://imgs.qc7.org/i/2025/01/20/image-ztyo.png)
+![](/archives/build-grpc/image-ztyo.png)
 
 ## 编译报错
 

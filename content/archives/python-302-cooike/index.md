@@ -18,7 +18,7 @@ cover: /archives/python-302-cooike/e2eui3.png
 
 在发起请求的时候，是设置了 cookie 的，第一个请求携带了 cookie，但是 302 跳转后的请求却没有携带 cookie，导致 500 失败了
 
-这里请求的是 https ，设置了 wireshark 抓包，可以参考 [这里](https://blog.qc7.org/archives/catch-python-https-packages)  ，在 mitmproxy 中也是可以查看报文的
+这里请求的是 https ，设置了 wireshark 抓包，可以参考 [这里](https://www.xqc7.com/archives/catch-python-https-packages)  ，在 mitmproxy 中也是可以查看报文的
 
 第一次发起的请求携带了 cookie，可以正常响应 302，并返回了 Location 地址 
 

@@ -15,7 +15,7 @@ cover: /archives/wireguard-udp2raw/sashnv.png
 
 ## 前言
 
-上一篇写了使用 wireguard 可以非常轻松的进行[组网部署](https://blog.qc7.org/archives/wireguard)，但是如果服务器厂商屏蔽了 udp 端口，那就没法了
+上一篇写了使用 wireguard 可以非常轻松的进行[组网部署](https://www.xqc7.com/archives/wireguard)，但是如果服务器厂商屏蔽了 udp 端口，那就没法了
 
 针对 udp 被服务器厂商屏蔽的情况，需要使用一款 udp2raw 或 socat 类似的工具，来将 udp 打包成 tcp 进行通信
 

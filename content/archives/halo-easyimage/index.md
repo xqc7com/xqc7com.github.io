@@ -93,7 +93,7 @@ rename_files(directory_path)
 
 文章不支持统一修改图片迁移，这里使用 vccode 插件将文章导出 markdown，然后在此基础上修改
 
-vscode 插件是 halo 官方发布的，可以参考 [基于halo使用vscode插件自动发布文章 ](https://blog.qc7.org/archives/halo-autopost)
+vscode 插件是 halo 官方发布的，可以参考 [基于halo使用vscode插件自动发布文章 ](https://www.xqc7.com/archives/halo-autopost)
 
 在配置好 vscode 的 halo 插件之后，命令行输入 pull 选择 `Pull post from Halo` 回车
 

@@ -18,7 +18,7 @@ cover: /archives/catch-python-https-packages/x5sfxw.png
 
 之前有调研过 wireshark 抓取 https 报文，核心就是 SSLKEYLOGFILE 配置
 
-有从[客户端 chrome 发起抓包](https://blog.qc7.org/archives/catch-client-https-packages)的，有从[服务端 wordpress 发起抓包](https://blog.qc7.org/archives/catch-server-https-packages)的
+有从[客户端 chrome 发起抓包](https://www.xqc7.com/archives/catch-client-https-packages)的，有从[服务端 wordpress 发起抓包](https://www.xqc7.com/archives/catch-server-https-packages)的
 
 我理解是不管什么语言发起的 https 请求，只要配置了 SSLKEYLOGFILE 就能正常抓取 
 

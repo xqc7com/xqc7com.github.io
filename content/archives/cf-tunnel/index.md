@@ -87,7 +87,7 @@ echo "hello from cloudflare!";
 
 ![](/archives/cf-tunnel/j23c06.png)
 
-在域中，选择一个配置的域名，不清楚域名配置的可以参考 [这里](https://blog.qc7.org/archives/cloudflare-domain-hosting)
+在域中，选择一个配置的域名，不清楚域名配置的可以参考 [这里](https://www.xqc7.com/archives/cloudflare-domain-hosting)
 
 URL 指定为前面 phpstudy 部署的本地 web 服务，然后点击 “保存隧道”
 
@@ -147,7 +147,7 @@ cloudflare 中支持进行重定向配置，在 “批量重定向” 添加重�
 
 ![](/archives/cf-tunnel/vrakkf.png)
 
-稍等片刻待 DNS 记录生效后，访问 qc7.org 或者 www.qc7.org，就会跳转到 blog.qc7.org 访问了
+稍等片刻待 DNS 记录生效后，访问 `qc7.org` 或者 `www.qc7.org`，就会跳转到 `blog.qc7.org` 访问了
 
 
 ![](/archives/cf-tunnel/vsmy1l.png)

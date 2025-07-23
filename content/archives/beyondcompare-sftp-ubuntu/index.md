@@ -29,7 +29,7 @@ beyond compare 支持远程文件夹的对比，非常方便，远程对比有�
 
 **免密连接**
 
-配置免密连接比密码登录相对安全很多，免密操作和之前提到的是一样的，可以参考 [这里](https://blog.qc7.org/archives/login-ssh-without-password)
+配置免密连接比密码登录相对安全很多，免密操作和之前提到的是一样的，可以参考 [这里](https://www.xqc7.com/archives/login-ssh-without-password)
 
 本地环境生成公私钥，将公钥配置到 ubuntu 中，经过测试，本地可以通过 ssh 免密连接到 ubuntu
 

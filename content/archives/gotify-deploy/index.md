@@ -16,7 +16,7 @@ cover: /archives/gotify-deploy/vhq0im.png
 
 ## 前言
 
-现网的一些业务节点，使用了 uptime 进行监控 https://blog.qc7.org/archives/uptime-kuma-monitor
+现网的一些业务节点，使用了 uptime 进行监控 https://www.xqc7.com/archives/uptime-kuma-monitor
 
 从监控可以了解业务的健康情况，并且 uptime 也是支持通知送达的
 

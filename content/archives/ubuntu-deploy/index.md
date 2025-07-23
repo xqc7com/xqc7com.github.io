@@ -271,7 +271,7 @@ SET GLOBAL validate_password.policy = LOW; -- 降低策略要求
 SET GLOBAL validate_password.length = 4;   -- 允许更短密码
 ```
 
-我这里已经设置了允许外部主机连接数据库 `%`，具体设置可以参考 [我的另一篇文章](https://blog.qc7.org/archives/mysql-trouble)
+我这里已经设置了允许外部主机连接数据库 `%`，具体设置可以参考 [我的另一篇文章](https://www.xqc7.com/archives/mysql-trouble)
 
 ![](/archives/ubuntu-deploy/stxrqo.png)
 
