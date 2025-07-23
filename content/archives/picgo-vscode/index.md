@@ -255,6 +255,110 @@ index 77950cb..5ea35c2 100644
     "picgo.picBed.current": "easyimage"
 ```
 
+`data.json` 文件的完整配置如下
+
+```json
+{
+  "picBed": {
+    "current": "easyimage",
+    "uploader": "easyimage",
+    "smms": {
+      "token": ""
+    },
+    "list": [
+      {
+        "type": "tcyun",
+        "name": "腾讯云COS",
+        "visible": false
+      },
+      {
+        "type": "aliyun",
+        "name": "阿里云OSS",
+        "visible": false
+      },
+      {
+        "type": "smms",
+        "name": "SM.MS",
+        "visible": false
+      },
+      {
+        "type": "github",
+        "name": "GitHub",
+        "visible": false
+      },
+      {
+        "type": "qiniu",
+        "name": "七牛云",
+        "visible": false
+      },
+      {
+        "type": "imgur",
+        "name": "Imgur",
+        "visible": false
+      },
+      {
+        "type": "upyun",
+        "name": "又拍云",
+        "visible": false
+      },
+      {
+        "type": "easyimage",
+        "name": "easyimage",
+        "visible": true
+      }
+    ],
+    "easyimage": {
+      "_configName": "Default",
+      "_id": "b49d0706-3a3e-4ed5-9d26-17cc2ef4fb60",
+      "_createdAt": 1737536832882,
+      "_updatedAt": 1739612110666,
+      "server": "https://192.168.10.211/api/index.php",
+      "token": "84150c44ef2321996556362d9b877f64"
+    }
+  },
+  "settings": {
+    "shortKey": {
+      "picgo:upload": {
+        "enable": true,
+        "key": "CommandOrControl+Shift+P",
+        "name": "upload",
+        "label": "QUICK_UPLOAD"
+      }
+    },
+    "showUpdateTip": true,
+    "privacyEnsure": true,
+    "useBuiltinClipboard": true,
+    "server": {
+      "port": 36677,
+      "host": "127.0.0.1",
+      "enable": true
+    },
+    "pasteStyle": "markdown"
+  },
+  "needReload": false,
+  "picgoPlugins": {
+    "picgo-plugin-easyimage": true
+  },
+  "uploader": {
+    "easyimage": {
+      "configList": [
+        {
+          "_configName": "Default",
+          "_id": "b49d0706-3a3e-4ed5-9d26-17cc2ef4fb60",
+          "_createdAt": 1737536832882,
+          "_updatedAt": 1739612110666,
+          "server": "https://192.168.10.211/api/index.php",
+          "token": "84150c44ef2321996556362d9b877f64"
+        }
+      ],
+      "defaultId": "b49d0706-3a3e-4ed5-9d26-17cc2ef4fb60"
+    }
+  },
+  "debug": true,
+  "PICGO_ENV": "GUI"
+}
+```
+
 配置之后，就可以在 vscode 中通过 `ctrl + alt + u` 快捷键对粘贴板中的图片进行上传了
 
 
@@ -271,3 +375,9 @@ index 77950cb..5ea35c2 100644
 配置之后，点击下方的 “验证图片上传选项” 进行测试
 
 没有问题的话，就可以在 typora 中使用 ctrl + v 粘贴实现剪切板图片上传到 easyimage 图床了
+
+## 插件地址
+
+修改后的代码和插件已经提交到 github 上了，如有需要可以从 github 获取 https://github.com/xqc7com/vs-picgo/tree/v2.1.7
+
+下载文件列表中的 `vs-picgo-2.1.7.vsix` 插件，然后在 vscode 中进行安装即可，这里 v2.1.7 是基于 v2.1.6 上修改的

@@ -47,35 +47,25 @@ cloudflare 有很多功能，可以在 cf 中可以进行域名托管，证书�
 
 ![](/archives/cloudflare-domain-hosting/20250109121910104.png)
 
-生效后就可以在左侧的 “DNS” 中添加个人的主机解析记录了
-
-这个 DNS 的添加配置，和在阿里云上的配置没什么区别
+生效后就可以在左侧的 “DNS” 中添加个人的主机解析记录了，这个 DNS 的添加配置，和在阿里云上的配置没什么区别
 
 ## 邮件配置
 
 cf 中可以配置接收所有以你域名为地址的邮件，并转发到指定邮箱
 
-比如，你的域名是 abc.com，那么无论是发往 admin@abc.com
+比如，你的域名是 `abc.com`，那么无论是发往 `admin@abc.com`，还是 `xxx@abc.com` 或者你域名的其他任意地址，都可以给你接收送达
 
-还是 xxx@abc.com 或者你域名的其他任意地址，都可以给你接收送达
+但是不提供发信的功能，如果需要回信得自行解决
 
-但是有一个， cf 不提供发信的功能，如果需要回信得自行解决
+在 “电子邮件路由” 中，“路由规则” 标签页，创建你指定的邮件地址，如 admin 等，并指标目标邮件地址，以便 cf 将邮件转发到你有效的邮箱中
 
-在 “电子邮件路由” 中，“路由规则” 标签页，创建你指定的邮件地址，如 admin 等
-
-并指标目标邮件地址，以便 cf 将邮件转发到你有效的邮箱中
-
-上面的 Catch-all 可以一起配置上，表示其他没添加的地址也一并转发
+下面的 Catch-all 可以一起配置上，表示其他没添加的地址也一并转发
 
 ![](/archives/cloudflare-domain-hosting/20250109124112666.png)
 
-比如，你的域名为 abc.com
+比如，你的域名为 `abc.com`，配置了 `admin@abc.com` 地址，转发到 `hello@gmail.com` 进行接收
 
-配置了 admin@abc.com 地址，转发到 hello@gmail.com 进行接收
-
-并且配置了 Catch-all 的接收地址为 world@gmail.com
-
-当有人发送邮件给 bob@abc.com 时，邮件将会转发给 world@gmail.com
+并且配置了 Catch-all 的接收地址为 `world@gmail.com`，当有人发送邮件给 `bob@abc.com` 时，邮件将会转发给 `world@gmail.com`
 
 ## 证书配置
 
