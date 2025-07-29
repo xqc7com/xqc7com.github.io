@@ -173,3 +173,8 @@ if __name__ == "__main__":
 ```shell
 pyinstaller --clean --noconfirm --onefile --windowed --name floatball main.py
 ```
+
+小工具已经提交到 github 这里 https://github.com/xqc7com/floatball，效果预览如下
+
+![](/archives/openwrt-ssr-restart/floatball.gif)
+
