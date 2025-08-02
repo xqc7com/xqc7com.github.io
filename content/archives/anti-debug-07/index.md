@@ -320,3 +320,54 @@ int main(int argc, char** argv)
 ![](/archives/anti-debug-07/7aqjyx.png)
 
 ![](/archives/anti-debug-07/f7pdpk.png)
+
+
+## 后记
+
+在前面进行逆向之后，晚上又想了一下，发现前面的逆向是有问题的，这里补充一下，hook 方式确实已经劫持了 NtSetInformationThread 函数
+
+但是时机不对，进程在运行过程中才进行 dll 的注入，这时候线程已经被设置了反调试，虽然劫持了后续的调用，但是前面的设置已经生效了
+
+hook 的时机需要在第一次调用 NtSetInformationThread 之前就劫持掉
+
+修改 MyHook 项目的 main 方法实现，使用 CreateProcess 的 CREATE_SUSPENDED 标志，此时目标进程只有一个主线程，所有的全局变量都还没被初始化
+
+在创建进程之后，进行 InjectDLL 劫持，然后再进行 ResumeThread 恢复主线程运行，修改后的 main 实现如下，运行效果如图 
+
+```c++
+int main(int argc, char** argv)
+{
+    if (argc != 3) 
+    {
+        std::cout << "Usage: <MyHook.exe> <target.exe> <inject.dll>";
+        return -1;
+    }
+
+    STARTUPINFO si = { sizeof(si) };
+    PROCESS_INFORMATION pi;
+    CreateProcess(argv[1], NULL, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, &pi);
+
+    const char* dllPath = argv[2];
+    if (InjectDLL(pi.dwProcessId, dllPath))
+    {
+        std::cout << "DLL injected successfully!\n";
+    }
+    else
+    {
+        std::cerr << "DLL injection failed.\n";
+    }
+
+    ResumeThread(pi.hThread);
+    std::cout << "process " << argv[1] << " is running..." << std::endl;
+    return 0;
+}
+```
+
+![](/archives/anti-debug-07/n6qrot.png)
+
+在 `anti07.exe` 在被 hook 之后，使用 vs2022 附加调试该进程，然后在代码中下断点，这时候就可以正常调试进程了
+
+![](/archives/anti-debug-07/8khz4y.png)
+
+![](/archives/anti-debug-07/omo3jn.png)
+
