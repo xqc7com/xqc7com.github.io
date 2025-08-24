@@ -78,17 +78,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 平滑滚动效果
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
   });
-});
 
 // 卡片悬停效果增强
 document.querySelectorAll(".card").forEach((card) => {
@@ -124,3 +124,15 @@ const handleScroll = debounce(() => {
 }, 10);
 
 window.addEventListener("scroll", handleScroll);
+
+// 检查是否按下了 Home、End 键
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Home' && !event.ctrlKey && !event.metaKey) {
+        event.preventDefault();
+        window.scrollTo(0, 0);
+    }
+    if (event.key === 'End' && !event.ctrlKey && !event.metaKey) {
+        event.preventDefault();
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+});

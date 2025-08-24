@@ -47,7 +47,7 @@ locoy.php 文件的代码大致如下，这里对文章发布的逻辑简单说�
 <?php
 /**
  * 标题：Wordpress火车头采集器免登录发布接口
- * 作者：QC七哥
+ * 作者：老七
  * 网址：https://blog.csdn.net/weixin_53109623
  */
  

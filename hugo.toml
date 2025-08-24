@@ -1,11 +1,11 @@
 baseURL = "https://www.xqc7.com/"
 languageCode = "zh-cn"
-title = "七哥向前冲"
+title = "老七向前冲"
 defaultContentLanguage = "zh"
 
 [params]
-  author = "七哥"
-  description = "七哥的技术博客"
+  author = "老七"
+  description = "老七的技术博客"
   since = "2024-11-15"
   subtitle = "You got a dream, you gotta to protect it!"
 
