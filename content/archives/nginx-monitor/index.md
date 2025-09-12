@@ -9,6 +9,7 @@ slug: nginx-monitor
 cover: /archives/nginx-monitor/l5eytz.png
 tags:
 - nginx
+- goaccess
 title: nginx部署goaccess监控
 ---
 
