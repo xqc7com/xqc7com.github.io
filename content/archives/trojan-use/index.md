@@ -173,9 +173,24 @@ set http_proxy_user= ...
 set http_proxy_pass= ...
 ```
 
-
 chrome 浏览器开启一个新会话访问 url 的时候，会发起一个 pac 文件的查询，带上当前 pac 文件的时间戳，如果服务端查看时间戳是旧的，就会重新下发最新的pac文件
 
 另外，windows 下是通过本地的服务 WinHttp 服务，通过 WPAD 协议进行代理服务器发现的
 
 ![](/archives/trojan-use/c19kf4.png)
+
+## 内网wpad服务搭建
+
+搭建 wpad 服务就是在 Trojan-Qt5（或其他代理工具）已经正常运行的情况下，增加一个配置下发的逻辑
+
+需要部署 nginx 或其他 web 服务，然后在 nginx 的目录下增加一个 wpad.dat 文件（就是前面说的 proxy.pac 文件）
+
+在路由器的 dhcp 选项中，增加一个 252 的选项（表示 wpad 协议），并将选项值更新为：http://xx.xx.xx.xx/wpad.dat
+
+完整的逻辑
+
+（1）设置路由器的 dhcp 支持 wpad 协议
+
+（2）内网机器在 wpad 发现的时候，获取到对应的 wpad.dat 文件
+
+（3）浏览器在访问网页的时候，按照 wpad.dat 的规则进行代理
