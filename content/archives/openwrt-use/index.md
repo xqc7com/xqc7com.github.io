@@ -6,7 +6,7 @@ description: ''
 draft: false
 image: ''
 slug: openwrt-use
-cover: /archives/openwrt-use/bgennv.png
+cover: /archives/openwrt-use/117f9y.png
 tags:
 - openwrt
 title: 路由器刷机ImmortalWrt的使用
