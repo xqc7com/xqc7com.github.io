@@ -6,7 +6,7 @@ description: ''
 draft: false
 image: ''
 slug: web-registration
-cover: /archives/web-registration/XXXXXX.png
+cover: /archives/web-registration/pqamlo.png
 tags:
 - 建站
 title: 国内域名备案的完整流程
