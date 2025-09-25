@@ -6,7 +6,7 @@ description: ''
 draft: false
 image: ''
 slug: office2013-active
-cover: /archives/office2013-active/XXXXXX.png
+cover: /archives/office2013-active/6s98zv.png
 tags:
 - office
 title: 使用KMS进行office2013激活
